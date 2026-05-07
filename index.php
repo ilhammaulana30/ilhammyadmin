@@ -116,7 +116,7 @@
     <!-- Dashboard -->
     <li class="nav-item">
       <a class="nav-link <?= ($page == 'index.php') ? '' : 'collapsed' ?>" href="index.php">
-        <i class="bi bi-speedometer2"></i>
+        <i class="bi bi-grid"></i>
         <span>Dashboard</span>
       </a>
     </li>
@@ -124,7 +124,7 @@
     <!-- Kategori Produk -->
     <li class="nav-item">
       <a class="nav-link <?= ($page == 'kategori_produk.php') ? '' : 'collapsed' ?>" href="kategori_produk.php">
-        <i class="bi bi-tags"></i>
+        <i class="bi bi-person"></i>
         <span>Kategori Produk</span>
       </a>
     </li>
@@ -132,7 +132,7 @@
     <!-- Data Produk -->
     <li class="nav-item">
       <a class="nav-link <?= ($page == 'data_produk.php') ? '' : 'collapsed' ?>" href="data_produk.php">
-        <i class="bi bi-box"></i>
+        <i class="bi bi-question-circle"></i>
         <span>Data Produk</span>
       </a>
     </li>
@@ -140,7 +140,7 @@
     <!-- Laporan -->
     <li class="nav-item">
       <a class="nav-link <?= ($page == 'laporan.php') ? '' : 'collapsed' ?>" href="laporan.php">
-        <i class="bi bi-bar-chart-line"></i>
+        <i class="bi bi-envelope"></i>
         <span>Laporan</span>
       </a>
     </li>
@@ -148,7 +148,7 @@
     <!-- Manajemen User -->
     <li class="nav-item">
       <a class="nav-link <?= ($page == 'user.php') ? '' : 'collapsed' ?>" href="user.php">
-        <i class="bi bi-people"></i>
+        <i class="bi bi-card-list"></i>
         <span>Manajemen User</span>
       </a>
     </li>

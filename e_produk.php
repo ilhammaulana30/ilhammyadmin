@@ -56,10 +56,10 @@ if (isset($_POST['update'])) {
 
     if ($update) {
         echo "<script>alert('Data berhasil diubah!');</script>";
-        header("refresh:0; produk.php");
+        header("refresh:0; data_produk.php");
     } else {
         echo "<script>alert('Data gagal diubah!');</script>";
-        header("refresh:0; produk.php");
+        header("refresh:0; data_produk.php");
     }
 }
 ?>
@@ -190,7 +190,7 @@ if (isset($_POST['update'])) {
             </li><!-- End Profile Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="produk.php">
+                <a class="nav-link collapsed" href="data_produk.php">
                     <i class="bi bi-question-circle"></i>
                     <span>Data_Produk</span>
                 </a>
@@ -304,7 +304,7 @@ if (isset($_POST['update'])) {
 
                                 <!-- Tombol -->
                                 <div class="text-center">
-                                    <a href="produk.php" class="btn btn-warning" style="color:black; text-decoration:none;">Kembali</a>
+                                    <a href="data_produk.php" class="btn btn-warning" style="color:black; text-decoration:none;">Kembali</a>
                                     <button type="reset" class="btn btn-secondary">Reset</button>
                                     <button type="submit" class="btn btn-success" name="update">Update</button>
                                 </div>

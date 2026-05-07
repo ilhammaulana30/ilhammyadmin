@@ -44,10 +44,10 @@ if (isset($_POST['simpan'])) {
 
         if ($query) {
             echo "<script>alert('Produk berhasil ditambahkan!');</script>";
-            header("refresh:0, produk.php");
+            header("refresh:0, data_produk.php");
         } else {
             echo "<script>alert('Gagal menambahkan produk!');</script>";
-            header("refresh:0, produk.php");
+            header("refresh:0, data_produk.php");
         }
     }
 }
@@ -179,7 +179,7 @@ if (isset($_POST['simpan'])) {
             </li><!-- End Profile Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="produk.php">
+                <a class="nav-link collapsed" href="data_produk.php">
                     <i class="bi bi-question-circle"></i>
                     <span>Data_Produk</span>
                 </a>
@@ -223,10 +223,10 @@ if (isset($_POST['simpan'])) {
                             <h5 class="card-title">Tambah Produk</h5>
 
                             <!-- Vertical Form -->
-                            <form class="row g-3" method="post" entectype="multipart/form-data">
+                            <form class="row g-3" method="post" enctype="multipart/form-data">
                                 <div class="col-12">
                                     <label for="kd_produk" class="form-label">Kode Produk</label>
-                                    <input type="text" class="form-control" id="kd_produk" name="kd_kat" value="<?php echo $hasil["kd_kat"]; ?>" required>
+                                    <input type="text" class="form-control" id="kd_produk" name="kd_produk" value="<?php echo $kd_produk; ?>" required>
                                 </div>
                                 <div class="col-12">
                                     <label for="nm_produk" class="form-label">Nama Produk</label>
@@ -252,7 +252,7 @@ if (isset($_POST['simpan'])) {
                                         include "koneksi.php";
                                         $query = mysqli_query($conn, "SELECT * FROM categories");
                                         while ($kategori = mysqli_fetch_array($query)) {
-                                            echo "<option value='{$kategori['id']}'>{$kategori['category_name']}</option";
+                                            echo "<option value='{$kategori['id']}'>{$kategori['category_name']}</option>";
                                         }
                                         ?>
                                     </select>
@@ -262,7 +262,7 @@ if (isset($_POST['simpan'])) {
                                     <input type="file" class="form-control" id="gambar" name="gambar" accept="image/*">
                                 </div>
                                 <div class="text-center">
-                                    <button type="button" class="btn btn-primary"><a href="produk_produk.php" style="color: black; text-decoration:none;">Kembali</a></button>
+                                    <button type="button" class="btn btn-primary"><a href="data_produk.php" style="color: black; text-decoration:none;">Kembali</a></button>
                                     <button type="reset" class="btn btn-secondary">Reset</button>
                                     <button type="submit" class="btn btn-success" name="simpan">Simpan</button>
                                 </div>

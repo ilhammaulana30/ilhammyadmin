@@ -1,4 +1,3 @@
-<?php $page = basename($_SERVER['PHP_SELF']); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,14 +43,13 @@
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
 
+
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
-
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
@@ -110,48 +108,42 @@
 
   <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
+
     <ul class="sidebar-nav" id="sidebar-nav">
 
-      <!-- Dashboard -->
       <li class="nav-item">
-        <a class="nav-link <?= ($page == 'index.php') ? '' : 'collapsed' ?>" href="index.php">
-          <i class="bi bi-speedometer2"></i>
+        <a class="nav-link collapsed" href="index.php">
+          <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
-      </li>
-
-      <!-- Kategori Produk -->
+      </li><!-- End Dashboard Nav -->
       <li class="nav-item">
-        <a class="nav-link <?= ($page == 'kategori_produk.php') ? '' : 'collapsed' ?>" href="kategori_produk.php">
+        <a class="nav-link " href="kategori_produk.php">
           <i class="bi bi-tags"></i>
           <span>Kategori Produk</span>
         </a>
-      </li>
+      </li><!-- End Profile Page Nav -->
 
-      <!-- Data Produk -->
       <li class="nav-item">
-        <a class="nav-link <?= ($page == 'data_produk.php') ? '' : 'collapsed' ?>" href="data_produk.php">
-          <i class="bi bi-box"></i>
+        <a class="nav-link collapsed" href="data_produk.php">
+          <i class="bi bi-box-seam"></i>
           <span>Data Produk</span>
         </a>
-      </li>
+      </li><!-- End Data Produk Page Nav -->
 
-      <!-- Laporan -->
       <li class="nav-item">
-        <a class="nav-link <?= ($page == 'laporan.php') ? '' : 'collapsed' ?>" href="laporan.php">
+        <a class="nav-link collapsed" href="laporan.php">
           <i class="bi bi-bar-chart-line"></i>
           <span>Laporan</span>
         </a>
-      </li>
+      </li><!-- End Laporan Page Nav -->
 
-      <!-- Manajemen User -->
       <li class="nav-item">
-        <a class="nav-link <?= ($page == 'user.php') ? '' : 'collapsed' ?>" href="user.php">
+        <a class="nav-link collapsed" href="users.php">
           <i class="bi bi-people"></i>
           <span>Manajemen User</span>
         </a>
-      </li>
-
+      </li><!-- End Register Page Nav -->
     </ul>
 
   </aside><!-- End Sidebar-->
@@ -167,36 +159,28 @@
         </ol>
       </nav>
     </div><!-- End Page Title -->
-    <div class="row">
-      <div class="col-lg-12">
-
-        <div class="card">
-          <div class="card-body mt-3">
-            <a href="t_kat.php" class="btn btn-primary">Tambah Data</a>
-            <a href="stok.php" class="btn btn-dark">Stok</a>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-body mt-3">
+              <a href="t_kat.php" class="btn btn-primary">Tambah Data</a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
     <section class="section">
       <div class="row">
         <div class="col-lg-12">
 
           <div class="card">
             <div class="card-body mt-3">
-
               <!-- Table with stripped rows -->
               <table class="table datatable">
                 <thead>
                   <tr>
                     <th scope="col">No</th>
                     <th scope="col">Kode Kategori</th>
-                    <th scope="col">Nama Produk</th>
-                    <th scope="col">Kategori</th>
-                    <th scope="col">Stok</th>
-                    <th scope="col">Harga</th>
-                    <th scope="col">Gambar</th>
+                    <th scope="col">Kategori Produk</th>
                     <th scope="col">Aksi</th>
                   </tr>
                 </thead>
@@ -204,32 +188,16 @@
                   <?php
                   include "koneksi.php";
                   $no = 1;
-
-                  // ambil data produk + nama kategori
-                  $sql = mysqli_query($conn, "
-    SELECT p.*, c.category_name
-    FROM products p
-    LEFT JOIN categories c ON p.category_id = c.id
-");
-
+                  $sql = mysqli_query($conn, "SELECT * FROM categories");
                   while ($data = mysqli_fetch_array($sql)) {
                   ?>
                     <tr>
                       <td><?php echo $no++; ?></td>
-                      <td><?php echo $data['product_code']; ?></td>
-                      <td><?php echo $data['product_name']; ?></td>
+                      <td><?php echo $data['kd_kat']; ?></td>
                       <td><?php echo $data['category_name']; ?></td>
-                      <td><?php echo $data['stock']; ?></td>
-                      <td>Rp <?php echo number_format($data['price'], 0, ',', '.'); ?></td>
                       <td>
-                        <img src="produk_img/<?php echo $data['gambar']; ?>" width="60">
-                      </td>
-                      <td>
-                        <a href="e_produk.php?id=<?php echo $data['id']; ?>" class="btn btn-warning">Edit</a>
-                        <a href="h_produk.php?id=<?php echo $data['id']; ?>" class="btn btn-danger"
-                          onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data?')">
-                          Hapus
-                        </a>
+                        <a href="e_kat.php?id=<?php echo $data['id']; ?>" class="btn btn-warning">Edit</a>
+                        <a href="h_kat.php?id=<?php echo $data['id']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data?')">Hapus</a>
                       </td>
                     </tr>
                   <?php } ?>
@@ -249,14 +217,14 @@
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
     <div class="copyright">
-      &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+      &copy; Copyright <strong><span>InvAdmin</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
       <!-- All the links in the footer should remain intact. -->
       <!-- You can delete the links only if you purchased the pro version. -->
       <!-- Licensing information: https://bootstrapmade.com/license/ -->
       <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      Designed by <a href="#">RifkyAdhiyoko</a>
     </div>
   </footer><!-- End Footer -->
 
