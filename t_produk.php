@@ -255,6 +255,7 @@ if (isset($_POST['simpan'])) {
                                             echo "<option value='{$kategori['id']}'>{$kategori['category_name']}</option";
                                         }
                                         ?>
+                                    </select>
                                 </div>
                                 <div class="col-12">
                                     <label for="gambar" class="form-label">Gambar Produk</label>

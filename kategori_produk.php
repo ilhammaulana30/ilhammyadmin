@@ -173,6 +173,7 @@
         <div class="card">
           <div class="card-body mt-3">
             <a href="t_kat.php" class="btn btn-primary">Tambah Data</a>
+            <a href="stok.php" class="btn btn-dark">Stok</a>
           </div>
         </div>
       </div>
@@ -191,7 +192,11 @@
                   <tr>
                     <th scope="col">No</th>
                     <th scope="col">Kode Kategori</th>
-                    <th scope="col">Kategori Produk</th>
+                    <th scope="col">Nama Produk</th>
+                    <th scope="col">Kategori</th>
+                    <th scope="col">Stok</th>
+                    <th scope="col">Harga</th>
+                    <th scope="col">Gambar</th>
                     <th scope="col">Aksi</th>
                   </tr>
                 </thead>
@@ -199,16 +204,32 @@
                   <?php
                   include "koneksi.php";
                   $no = 1;
-                  $sql = mysqli_query($conn, "SELECT * FROM categories");
+
+                  // ambil data produk + nama kategori
+                  $sql = mysqli_query($conn, "
+    SELECT p.*, c.category_name
+    FROM products p
+    LEFT JOIN categories c ON p.category_id = c.id
+");
+
                   while ($data = mysqli_fetch_array($sql)) {
                   ?>
                     <tr>
                       <td><?php echo $no++; ?></td>
-                      <td><?php echo $data['kd_kat']; ?></td>
+                      <td><?php echo $data['product_code']; ?></td>
+                      <td><?php echo $data['product_name']; ?></td>
                       <td><?php echo $data['category_name']; ?></td>
+                      <td><?php echo $data['stock']; ?></td>
+                      <td>Rp <?php echo number_format($data['price'], 0, ',', '.'); ?></td>
                       <td>
-                        <a href="e_kat.php?id=<?php echo $data['id']; ?>" class="btn btn-warning">Edit</a>
-                        <a href="h_kat.php?id=<?php echo $data['id']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data?')">Hapus</a>
+                        <img src="produk_img/<?php echo $data['gambar']; ?>" width="60">
+                      </td>
+                      <td>
+                        <a href="e_produk.php?id=<?php echo $data['id']; ?>" class="btn btn-warning">Edit</a>
+                        <a href="h_produk.php?id=<?php echo $data['id']; ?>" class="btn btn-danger"
+                          onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data?')">
+                          Hapus
+                        </a>
                       </td>
                     </tr>
                   <?php } ?>

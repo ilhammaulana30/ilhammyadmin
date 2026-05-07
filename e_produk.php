@@ -1,10 +1,8 @@
 <?php
 include "koneksi.php";
-
 $id = $_GET['id'];
 $query = mysqli_query($conn, "SELECT * FROM products WHERE id='$id'");
 $hasil = mysqli_fetch_array($query);
-
 if (isset($_POST['update'])) {
 
     $nm_produk   = $_POST['nm_produk'];
