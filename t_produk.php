@@ -44,10 +44,10 @@ if (isset($_POST['simpan'])) {
 
         if ($query) {
             echo "<script>alert('Produk berhasil ditambahkan!');</script>";
-            header("refresh:0, data_produk.php");
+            header("refresh:0, produk.php");
         } else {
             echo "<script>alert('Gagal menambahkan produk!');</script>";
-            header("refresh:0, data_produk.php");
+            header("refresh:0, produk.php");
         }
     }
 }
@@ -59,7 +59,7 @@ if (isset($_POST['simpan'])) {
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Data Produk - ilhammyadmin</title>
+    <title>Data Produk - ilventory</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -93,7 +93,7 @@ if (isset($_POST['simpan'])) {
         <div class="d-flex align-items-center justify-content-between">
             <a href="index.php" class="logo d-flex align-items-center">
                 <img src="assets/img/logo.png" alt="">
-                <span class="d-none d-lg-block">ilhammyadmin</span>
+                <span class="d-none d-lg-block">ilventory</span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
@@ -179,7 +179,7 @@ if (isset($_POST['simpan'])) {
             </li><!-- End Profile Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="data_produk.php">
+                <a class="nav-link collapsed" href="produk.php">
                     <i class="bi bi-question-circle"></i>
                     <span>Data_Produk</span>
                 </a>
@@ -197,7 +197,8 @@ if (isset($_POST['simpan'])) {
                     <i class="bi bi-card-list"></i>
                     <span>Manajemen User</span>
                 </a>
-            </li><!-- End Register Page Nav -->
+            </li>
+            <!-- End Register Page Nav -->
         </ul>
 
     </aside><!-- End Sidebar-->
@@ -262,7 +263,7 @@ if (isset($_POST['simpan'])) {
                                     <input type="file" class="form-control" id="gambar" name="gambar" accept="image/*">
                                 </div>
                                 <div class="text-center">
-                                    <button type="button" class="btn btn-primary"><a href="data_produk.php" style="color: black; text-decoration:none;">Kembali</a></button>
+                                    <button type="button" class="btn btn-primary"><a href="produk.php" style="color: black; text-decoration:none;">Kembali</a></button>
                                     <button type="reset" class="btn btn-secondary">Reset</button>
                                     <button type="submit" class="btn btn-success" name="simpan">Simpan</button>
                                 </div>

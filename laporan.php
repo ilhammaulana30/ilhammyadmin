@@ -1,4 +1,27 @@
 <?php $page = basename($_SERVER['PHP_SELF']); ?>
+<?php
+include 'koneksi.php';
+// total stok
+$total_item = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM products"));
+
+// Total transaksi barang masuk
+$total_barang_masuk = mysqli_num_rows(mysqli_query(
+  $conn,
+  "SELECT id FROM stock_logs WHERE change_type = 'ADD'"
+));
+
+// Total transaksi barang keluar
+$total_barang_keluar = mysqli_num_rows(mysqli_query(
+  $conn,
+  "SELECT id FROM stock_logs WHERE change_type = 'REDUCE'"
+));
+
+// Total item dengan stok kritis / minimum
+$total_stok_kritis = mysqli_num_rows(mysqli_query(
+  $conn,
+  "SELECT id FROM products WHERE stock <= min_stock"
+));
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +29,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>laporan - ilhammyadmin</title>
+  <title>laporan - ilventory</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -39,7 +62,7 @@
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.php" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">ilhammyadmin</span>
+        <span class="d-none d-lg-block">ilventory</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -51,7 +74,7 @@
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            
+
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
@@ -109,14 +132,14 @@
   </header><!-- End Header -->
 
 
- <!-- ======= Sidebar ======= -->
+  <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
-  <ul class="sidebar-nav" id="sidebar-nav">
+    <ul class="sidebar-nav" id="sidebar-nav">
 
-    <!-- Dashboard -->
+      <!-- Dashboard -->
     <li class="nav-item">
       <a class="nav-link <?= ($page == 'index.php') ? '' : 'collapsed' ?>" href="index.php">
-        <i class="bi bi-speedometer2"></i>
+        <i class="bi bi-grid"></i>
         <span>Dashboard</span>
       </a>
     </li>
@@ -124,15 +147,15 @@
     <!-- Kategori Produk -->
     <li class="nav-item">
       <a class="nav-link <?= ($page == 'kategori_produk.php') ? '' : 'collapsed' ?>" href="kategori_produk.php">
-        <i class="bi bi-tags"></i>
+        <i class="bi bi-person"></i>
         <span>Kategori Produk</span>
       </a>
     </li>
 
     <!-- Data Produk -->
     <li class="nav-item">
-      <a class="nav-link <?= ($page == 'data_produk.php') ? '' : 'collapsed' ?>" href="data_produk.php">
-        <i class="bi bi-box"></i>
+      <a class="nav-link <?= ($page == 'produk.php') ? '' : 'collapsed' ?>" href="produk.php">
+        <i class="bi bi-question-circle"></i>
         <span>Data Produk</span>
       </a>
     </li>
@@ -140,7 +163,7 @@
     <!-- Laporan -->
     <li class="nav-item">
       <a class="nav-link <?= ($page == 'laporan.php') ? '' : 'collapsed' ?>" href="laporan.php">
-        <i class="bi bi-bar-chart-line"></i>
+        <i class="bi bi-envelope"></i>
         <span>Laporan</span>
       </a>
     </li>
@@ -148,12 +171,12 @@
     <!-- Manajemen User -->
     <li class="nav-item">
       <a class="nav-link <?= ($page == 'user.php') ? '' : 'collapsed' ?>" href="user.php">
-        <i class="bi bi-people"></i>
+        <i class="bi bi-card-list"></i>
         <span>Manajemen User</span>
       </a>
     </li>
 
-  </ul>
+    </ul>
 
   </aside><!-- End Sidebar-->
 
@@ -171,27 +194,103 @@
 
     <section class="section">
       <div class="row">
-        <div class="col-lg-6">
 
-          <div class="card">
+        <!-- Laporan Stok Barang -->
+        <div class="col-lg-6">
+          <div class="card shadow-sm">
             <div class="card-body">
-              <h5 class="card-title">Example Card</h5>
-              <p>This is an examle page with no contrnt. You can use it as a starter for your custom pages.</p>
+              <h5 class="card-title">Laporan Stok Barang</h5>
+              <p class="text-muted">
+                Menampilkan seluruh data stok barang saat ini.
+              </p>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-primary">
+                  Total Item: <?= $total_item; ?>
+                </span>
+
+                <a href="laporan_stok.php"
+                  class="btn btn-sm btn-primary"
+                  target="_blank">
+                  Lihat Laporan
+                </a>
+              </div>
             </div>
           </div>
-
         </div>
 
+        <!-- Laporan Barang Masuk -->
         <div class="col-lg-6">
-
-          <div class="card">
+          <div class="card shadow-sm">
             <div class="card-body">
-              <h5 class="card-title">Example Card</h5>
-              <p>This is an examle page with no contrnt. You can use it as a starter for your custom pages.</p>
+              <h5 class="card-title">Laporan Barang Masuk</h5>
+              <p class="text-muted">
+                Riwayat barang yang masuk ke gudang.
+              </p>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-success">
+                  Total Transaksi: <?= $total_barang_masuk; ?>
+                </span>
+
+                <a href="laporan_barang_masuk.php"
+                  class="btn btn-sm btn-success"
+                  target="_blank">
+                  Lihat Laporan
+                </a>
+              </div>
             </div>
           </div>
-
         </div>
+
+        <!-- Laporan Barang Keluar -->
+        <div class="col-lg-6">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">Laporan Barang Keluar</h5>
+              <p class="text-muted">
+                Riwayat barang yang keluar dari gudang.
+              </p>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-danger">
+                  Total Transaksi: <?= $total_barang_keluar; ?>
+                </span>
+
+                <a href="laporan_barang_keluar.php"
+                  class="btn btn-sm btn-danger"
+                  target="_blank">
+                  Lihat Laporan
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Laporan Stok Minimum -->
+        <div class="col-lg-6">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">Stok Minimum</h5>
+              <p class="text-muted">
+                Barang dengan stok hampir habis.
+              </p>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-warning">
+                  Item Kritis: <?= $total_stok_kritis; ?>
+                </span>
+
+                <a href="laporan_stok_minimum.php"
+                  class="btn btn-sm btn-warning"
+                  target="_blank">
+                  Lihat Laporan
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 

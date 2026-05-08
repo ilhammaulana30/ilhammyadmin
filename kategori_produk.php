@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Kategori Produk - ilhammyadmin</title>
+  <title>Kategori Produk - ilventory</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -38,7 +38,7 @@
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.php" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">ilhammyadmin</span>
+        <span class="d-none d-lg-block">ilventory</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -119,28 +119,28 @@
       </li><!-- End Dashboard Nav -->
       <li class="nav-item">
         <a class="nav-link " href="kategori_produk.php">
-          <i class="bi bi-tags"></i>
+          <i class="bi bi-person"></i>
           <span>Kategori Produk</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="data_produk.php">
-          <i class="bi bi-box-seam"></i>
+        <a class="nav-link collapsed" href="produk.php">
+          <i class="bi bi-question-circle"></i>
           <span>Data Produk</span>
         </a>
       </li><!-- End Data Produk Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="laporan.php">
-          <i class="bi bi-bar-chart-line"></i>
+          <i class="bi bi-envelope"></i>
           <span>Laporan</span>
         </a>
       </li><!-- End Laporan Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="users.php">
-          <i class="bi bi-people"></i>
+          <i class="bi bi-card-list"></i>
           <span>Manajemen User</span>
         </a>
       </li><!-- End Register Page Nav -->

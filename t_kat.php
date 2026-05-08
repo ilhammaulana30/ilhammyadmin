@@ -34,7 +34,7 @@ if (isset($_POST['simpan'])) {
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Kategori Produk - ilhammyadmin </title>
+    <title>Kategori Produk - ilventory </title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -68,7 +68,7 @@ if (isset($_POST['simpan'])) {
         <div class="d-flex align-items-center justify-content-between">
             <a href="index.php" class="logo d-flex align-items-center">
                 <img src="assets/img/logo.png" alt="">
-                <span class="d-none d-lg-block">ilhammyadmin</span>
+                <span class="d-none d-lg-block">ilventory</span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
@@ -142,44 +142,44 @@ if (isset($_POST['simpan'])) {
         <ul class="sidebar-nav" id="sidebar-nav">
 
             <!-- Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link <?= ($page == 'index.php') ? '' : 'collapsed' ?>" href="index.php">
-                    <i class="bi bi-speedometer2"></i>
-                    <span>Dashboard</span>
-                </a>
-            </li>
+    <li class="nav-item">
+      <a class="nav-link <?= ($page == 'index.php') ? '' : 'collapsed' ?>" href="index.php">
+        <i class="bi bi-grid"></i>
+        <span>Dashboard</span>
+      </a>
+    </li>
 
-            <!-- Kategori Produk -->
-            <li class="nav-item">
-                <a class="nav-link <?= ($page == 'kategori_produk.php') ? '' : 'collapsed' ?>" href="kategori_produk.php">
-                    <i class="bi bi-tags"></i>
-                    <span>Kategori Produk</span>
-                </a>
-            </li>
+    <!-- Kategori Produk -->
+    <li class="nav-item">
+      <a class="nav-link <?= ($page == 'kategori_produk.php') ? '' : 'collapsed' ?>" href="kategori_produk.php">
+        <i class="bi bi-person"></i>
+        <span>Kategori Produk</span>
+      </a>
+    </li>
 
-            <!-- Data Produk -->
-            <li class="nav-item">
-                <a class="nav-link <?= ($page == 'data_produk.php') ? '' : 'collapsed' ?>" href="data_produk.php">
-                    <i class="bi bi-box"></i>
-                    <span>Data Produk</span>
-                </a>
-            </li>
+    <!-- Data Produk -->
+    <li class="nav-item">
+      <a class="nav-link <?= ($page == 'produk.php') ? '' : 'collapsed' ?>" href="produk.php">
+        <i class="bi bi-question-circle"></i>
+        <span>Data Produk</span>
+      </a>
+    </li>
 
-            <!-- Laporan -->
-            <li class="nav-item">
-                <a class="nav-link <?= ($page == 'laporan.php') ? '' : 'collapsed' ?>" href="laporan.php">
-                    <i class="bi bi-bar-chart-line"></i>
-                    <span>Laporan</span>
-                </a>
-            </li>
+    <!-- Laporan -->
+    <li class="nav-item">
+      <a class="nav-link <?= ($page == 'laporan.php') ? '' : 'collapsed' ?>" href="laporan.php">
+        <i class="bi bi-envelope"></i>
+        <span>Laporan</span>
+      </a>
+    </li>
 
-            <!-- Manajemen User -->
-            <li class="nav-item">
-                <a class="nav-link <?= ($page == 'user.php') ? '' : 'collapsed' ?>" href="user.php">
-                    <i class="bi bi-people"></i>
-                    <span>Manajemen User</span>
-                </a>
-            </li>
+    <!-- Manajemen User -->
+    <li class="nav-item">
+      <a class="nav-link <?= ($page == 'user.php') ? '' : 'collapsed' ?>" href="user.php">
+        <i class="bi bi-card-list"></i>
+        <span>Manajemen User</span>
+      </a>
+    </li>
 
         </ul>
 

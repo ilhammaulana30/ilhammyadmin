@@ -56,10 +56,10 @@ if (isset($_POST['update'])) {
 
     if ($update) {
         echo "<script>alert('Data berhasil diubah!');</script>";
-        header("refresh:0; data_produk.php");
+        header("refresh:0; produk.php");
     } else {
         echo "<script>alert('Data gagal diubah!');</script>";
-        header("refresh:0; data_produk.php");
+        header("refresh:0; produk.php");
     }
 }
 ?>
@@ -70,7 +70,7 @@ if (isset($_POST['update'])) {
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Data Produk - ilhammyadmin</title>
+    <title>Data Produk - ilventory</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -104,7 +104,7 @@ if (isset($_POST['update'])) {
         <div class="d-flex align-items-center justify-content-between">
             <a href="index.php" class="logo d-flex align-items-center">
                 <img src="assets/img/logo.png" alt="">
-                <span class="d-none d-lg-block">ilhammyadmin</span>
+                <span class="d-none d-lg-block">ilventory</span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
@@ -190,7 +190,7 @@ if (isset($_POST['update'])) {
             </li><!-- End Profile Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="data_produk.php">
+                <a class="nav-link collapsed" href="produk.php">
                     <i class="bi bi-question-circle"></i>
                     <span>Data_Produk</span>
                 </a>
@@ -304,7 +304,7 @@ if (isset($_POST['update'])) {
 
                                 <!-- Tombol -->
                                 <div class="text-center">
-                                    <a href="data_produk.php" class="btn btn-warning" style="color:black; text-decoration:none;">Kembali</a>
+                                    <a href="produk.php" class="btn btn-warning" style="color:black; text-decoration:none;">Kembali</a>
                                     <button type="reset" class="btn btn-secondary">Reset</button>
                                     <button type="submit" class="btn btn-success" name="update">Update</button>
                                 </div>
