@@ -9,14 +9,14 @@ if ($hapus) {
 
     echo "<script>
             alert('User berhasil dihapus!');
-            window.location='user.php';
+            window.location='users.php';
           </script>";
 
 } else {
 
     echo "<script>
             alert('User gagal dihapus!');
-            window.location='user.php';
+            window.location='users.php';
           </script>";
 }
 ?>

@@ -148,7 +148,7 @@
 
     <!-- Manajemen User -->
     <li class="nav-item">
-      <a class="nav-link <?= ($page == 'user.php') ? '' : 'collapsed' ?>" href="user.php">
+      <a class="nav-link <?= ($page == 'users.php') ? '' : 'collapsed' ?>" href="users.php">
         <i class="bi bi-card-list"></i>
         <span>Manajemen User</span>
       </a>

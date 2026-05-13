@@ -139,7 +139,7 @@
       </li><!-- End Laporan Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link " href="user.php">
+        <a class="nav-link " href="users.php">
           <i class="bi bi-people"></i>
           <span>Manajemen User</span>
         </a>
@@ -166,7 +166,7 @@
 
           <div class="card">
             <div class="card-body mt-3">
-              <a href="t_user.php" class="btn btn-primary"> Tambah Data</a>
+              <a href="t_users.php" class="btn btn-primary"> Tambah Data</a>
             </div>
           </div>
         </div>
@@ -225,12 +225,12 @@
                         </td>
 
                         <td>
-                          <a href="e_user.php?id=<?php echo $data['id']; ?>"
+                          <a href="e_users.php?id=<?php echo $data['id']; ?>"
                             class="btn btn-warning btn-sm">
                             Edit
                           </a>
 
-                          <a href="h_user.php?id=<?php echo $data['id']; ?>"
+                          <a href="h_users.php?id=<?php echo $data['id']; ?>"
                             class="btn btn-danger btn-sm"
                             onclick="return confirm('Apakah Anda yakin ingin menghapus user ini?')">
                             Hapus
