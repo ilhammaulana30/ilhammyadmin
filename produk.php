@@ -1,3 +1,13 @@
+<?php
+session_start();
+include "koneksi.php";
+
+// Cek apakah user sudah login
+if (!isset($_SESSION['login'])) {
+    header("Location: login.php");
+    exit;
+}
+?>
 <?php $page = basename($_SERVER['PHP_SELF']); ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,62 +61,43 @@
 
         <li class="nav-item dropdown pe-3">
 
-          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-
-          </a><!-- End Profile Iamge Icon -->
+          <a class="nav-link nav-profile d-flex align-items-center pe-0"
+            href="#"
+            data-bs-toggle="dropdown">
+            <img
+              src="assets/img/ilham2.jpeg"
+              alt="Profile"
+              class="rounded-circle" />
+          </a>
+          <!-- End Profile Image Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>Kevin Anderson</h6>
-              <span>Web Designer</span>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-person"></i>
-                <span>My Profile</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
+              <h6>
+                <?php echo isset($_SESSION['name']) ? $_SESSION['name'] : 'User'; ?>
+              </h6>
+              <span>
+                <?php echo isset($_SESSION['role']) ? $_SESSION['role'] : 'Role'; ?>
+              </span>
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-gear"></i>
-                <span>Account Settings</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
+              <hr class="dropdown-divider" />
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                <i class="bi bi-question-circle"></i>
-                <span>Need Help?</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="logout.php">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
               </a>
             </li>
-
-          </ul><!-- End Profile Dropdown Items -->
-        </li><!-- End Profile Nav -->
-
+          </ul>
+          <!-- End Profile Dropdown Items -->
+        </li>
+        <!-- End Profile Nav -->
       </ul>
-    </nav><!-- End Icons Navigation -->
+    </nav>
+    <!-- End Icons Navigation -->
 
   </header><!-- End Header -->
 
@@ -115,44 +106,44 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <!-- Dashboard -->
-    <li class="nav-item">
-      <a class="nav-link <?= ($page == 'index.php') ? '' : 'collapsed' ?>" href="index.php">
-        <i class="bi bi-grid"></i>
-        <span>Dashboard</span>
-      </a>
-    </li>
+      <li class="nav-item">
+        <a class="nav-link <?= ($page == 'index.php') ? '' : 'collapsed' ?>" href="index.php">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
 
-    <!-- Kategori Produk -->
-    <li class="nav-item">
-      <a class="nav-link <?= ($page == 'kategori_produk.php') ? '' : 'collapsed' ?>" href="kategori_produk.php">
-        <i class="bi bi-person"></i>
-        <span>Kategori Produk</span>
-      </a>
-    </li>
+      <!-- Kategori Produk -->
+      <li class="nav-item">
+        <a class="nav-link <?= ($page == 'kategori_produk.php') ? '' : 'collapsed' ?>" href="kategori_produk.php">
+          <i class="bi bi-person"></i>
+          <span>Kategori Produk</span>
+        </a>
+      </li>
 
-    <!-- Data Produk -->
-    <li class="nav-item">
-      <a class="nav-link <?= ($page == 'produk.php') ? '' : 'collapsed' ?>" href="produk.php">
-        <i class="bi bi-question-circle"></i>
-        <span>Data Produk</span>
-      </a>
-    </li>
+      <!-- Data Produk -->
+      <li class="nav-item">
+        <a class="nav-link <?= ($page == 'produk.php') ? '' : 'collapsed' ?>" href="produk.php">
+          <i class="bi bi-question-circle"></i>
+          <span>Data Produk</span>
+        </a>
+      </li>
 
-    <!-- Laporan -->
-    <li class="nav-item">
-      <a class="nav-link <?= ($page == 'laporan.php') ? '' : 'collapsed' ?>" href="laporan.php">
-        <i class="bi bi-envelope"></i>
-        <span>Laporan</span>
-      </a>
-    </li>
+      <!-- Laporan -->
+      <li class="nav-item">
+        <a class="nav-link <?= ($page == 'laporan.php') ? '' : 'collapsed' ?>" href="laporan.php">
+          <i class="bi bi-envelope"></i>
+          <span>Laporan</span>
+        </a>
+      </li>
 
-    <!-- Manajemen User -->
-    <li class="nav-item">
-      <a class="nav-link <?= ($page == 'users.php') ? '' : 'collapsed' ?>" href="users.php">
-        <i class="bi bi-card-list"></i>
-        <span>Manajemen User</span>
-      </a>
-    </li>
+      <!-- Manajemen User -->
+      <li class="nav-item">
+        <a class="nav-link <?= ($page == 'users.php') ? '' : 'collapsed' ?>" href="users.php">
+          <i class="bi bi-card-list"></i>
+          <span>Manajemen User</span>
+        </a>
+      </li>
 
     </ul>
 
@@ -188,7 +179,7 @@
 
           <div class="card">
             <div class="card-body mt-3">
-             
+
               <!-- Table with stripped rows -->
               <table class="table datatable">
                 <thead>
@@ -260,7 +251,7 @@
       <!-- You can delete the links only if you purchased the pro version. -->
       <!-- Licensing information: https://bootstrapmade.com/license/ -->
       <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      Designed by <a href="https://bootstrapmade.com/">Ilham Maulana</a>
+      Designed by <a href="https://www.tiktok.com/@iilhamlna?_r=1&_t=ZS-96MCzT31Fnm">Ilham Maulana</a>
     </div>
   </footer><!-- End Footer -->
 
