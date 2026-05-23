@@ -15,12 +15,12 @@ if (!isset($_SESSION['login'])) {
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>User - ilventory</title>
+  <title>users - ilventory</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/ilventory3.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -47,7 +47,7 @@ if (!isset($_SESSION['login'])) {
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.php" class="logo d-flex align-items-center">
-        <img src="assets/img/logo.png" alt="">
+        <img src="assets/img/ilventory3.png" alt="">
         <span class="d-none d-lg-block">ilventory</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -112,28 +112,28 @@ if (!isset($_SESSION['login'])) {
       </li><!-- End Dashboard Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="kategori_produk.php">
-          <i class="bi bi-tags"></i>
+          <i class="bi bi-person"></i>
           <span>Kategori Produk</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="produk.php">
-          <i class="bi bi-box-seam"></i>
+          <i class="bi bi-question-circle"></i>
           <span>Data Produk</span>
         </a>
       </li><!-- End Data Produk Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="laporan.php">
-          <i class="bi bi-bar-chart-line"></i>
+          <i class="bi bi-envelope"></i>
           <span>Laporan</span>
         </a>
       </li><!-- End Laporan Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link " href="users.php">
-          <i class="bi bi-people"></i>
+          <i class="bi bi-card-list"></i>
           <span>Manajemen User</span>
         </a>
       </li><!-- End Register Page Nav -->
