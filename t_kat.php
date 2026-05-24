@@ -130,51 +130,50 @@ if (isset($_POST['simpan'])) {
 
     <!-- ======= Sidebar ======= -->
     <aside id="sidebar" class="sidebar">
-        <ul class="sidebar-nav" id="sidebar-nav">
+  <ul class="sidebar-nav" id="sidebar-nav">
 
-            <!-- Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link <?= ($page == 'index.php') ? '' : 'collapsed' ?>" href="index.php">
-                    <i class="bi bi-grid"></i>
-                    <span>Dashboard</span>
-                </a>
-            </li>
+    <!-- Dashboard -->
+    <li class="nav-item">
+      <a class="nav-link <?= ($page == 'index.php') ? '' : 'collapsed' ?>" href="index.php">
+        <i class="bi bi-speedometer2"></i>
+        <span>Dashboard</span>
+      </a>
+    </li>
 
-            <!-- Kategori Produk -->
-            <li class="nav-item">
-                <a class="nav-link <?= ($page == 'kategori_produk.php') ? '' : 'collapsed' ?>" href="kategori_produk.php">
-                    <i class="bi bi-person"></i>
-                    <span>Kategori Produk</span>
-                </a>
-            </li>
+    <!-- Kategori Produk -->
+    <li class="nav-item">
+      <a class="nav-link <?= ($page == 'kategori_produk.php') ? '' : 'collapsed' ?>" href="kategori_produk.php">
+        <i class="bi bi-tags"></i>
+        <span>Kategori Produk</span>
+      </a>
+    </li>
 
-            <!-- Data Produk -->
-            <li class="nav-item">
-                <a class="nav-link <?= ($page == 'produk.php') ? '' : 'collapsed' ?>" href="produk.php">
-                    <i class="bi bi-question-circle"></i>
-                    <span>Data Produk</span>
-                </a>
-            </li>
+    <!-- Data Produk -->
+    <li class="nav-item">
+      <a class="nav-link <?= ($page == 'produk.php') ? '' : 'collapsed' ?>" href="produk.php">
+        <i class="bi bi-box-seam"></i>
+        <span>Data Produk</span>
+      </a>
+    </li>
 
-            <!-- Laporan -->
-            <li class="nav-item">
-                <a class="nav-link <?= ($page == 'laporan.php') ? '' : 'collapsed' ?>" href="laporan.php">
-                    <i class="bi bi-envelope"></i>
-                    <span>Laporan</span>
-                </a>
-            </li>
+    <!-- Laporan -->
+    <li class="nav-item">
+      <a class="nav-link <?= ($page == 'laporan.php') ? '' : 'collapsed' ?>" href="laporan.php">
+        <i class="bi bi-file-earmark-bar-graph"></i>
+        <span>Laporan</span>
+      </a>
+    </li>
 
-            <!-- Manajemen User -->
-            <li class="nav-item">
-                <a class="nav-link <?= ($page == 'users.php') ? '' : 'collapsed' ?>" href="users.php">
-                    <i class="bi bi-card-list"></i>
-                    <span>Manajemen User</span>
-                </a>
-            </li>
+    <!-- Manajemen User -->
+    <li class="nav-item">
+      <a class="nav-link <?= ($page == 'users.php') ? '' : 'collapsed' ?>" href="users.php">
+        <i class="bi bi-people"></i>
+        <span>Manajemen User</span>
+      </a>
+    </li>
 
-        </ul>
-
-    </aside><!-- End Sidebar-->
+  </ul>
+</aside><!-- End Sidebar-->
 
 
     <main id="main" class="main">

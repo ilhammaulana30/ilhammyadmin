@@ -1,3 +1,4 @@
+<?php $page = basename($_SERVER['PHP_SELF']); ?>
 <?php
 session_start();
 include "koneksi.php";
@@ -154,46 +155,50 @@ if (isset($_POST['simpan'])) {
 
     <!-- ======= Sidebar ======= -->
     <aside id="sidebar" class="sidebar">
+  <ul class="sidebar-nav" id="sidebar-nav">
 
-        <ul class="sidebar-nav" id="sidebar-nav">
+    <!-- Dashboard -->
+    <li class="nav-item">
+      <a class="nav-link <?= ($page == 'index.php') ? '' : 'collapsed' ?>" href="index.php">
+        <i class="bi bi-speedometer2"></i>
+        <span>Dashboard</span>
+      </a>
+    </li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="index.php">
-                    <i class="bi bi-grid"></i>
-                    <span>Dashboard</span>
-                </a>
-            </li><!-- End Dashboard Nav -->
+    <!-- Kategori Produk -->
+    <li class="nav-item">
+      <a class="nav-link <?= ($page == 'kategori_produk.php') ? '' : 'collapsed' ?>" href="kategori_produk.php">
+        <i class="bi bi-tags"></i>
+        <span>Kategori Produk</span>
+      </a>
+    </li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="kategori_produk.php">
-                    <i class="bi bi-person"></i>
-                    <span>Kategori Produk</span>
-                </a>
-            </li><!-- End Profile Page Nav -->
+    <!-- Data Produk -->
+    <li class="nav-item">
+      <a class="nav-link <?= ($page == 'produk.php') ? '' : 'collapsed' ?>" href="produk.php">
+        <i class="bi bi-box-seam"></i>
+        <span>Data Produk</span>
+      </a>
+    </li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="produk.php">
-                    <i class="bi bi-question-circle"></i>
-                    <span>Data Produk</span>
-                </a>
-            </li><!-- End F.A.Q Page Nav -->
+    <!-- Laporan -->
+    <li class="nav-item">
+      <a class="nav-link <?= ($page == 'laporan.php') ? '' : 'collapsed' ?>" href="laporan.php">
+        <i class="bi bi-file-earmark-bar-graph"></i>
+        <span>Laporan</span>
+      </a>
+    </li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="laporan.php">
-                    <i class="bi bi-envelope"></i>
-                    <span>Laporan</span>
-                </a>
-            </li><!-- End Contact Page Nav -->
+    <!-- Manajemen User -->
+    <li class="nav-item">
+      <a class="nav-link <?= ($page == 'users.php') ? '' : 'collapsed' ?>" href="users.php">
+        <i class="bi bi-people"></i>
+        <span>Manajemen User</span>
+      </a>
+    </li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="users.php">
-                    <i class="bi bi-card-list"></i>
-                    <span>Manajemen User</span>
-                </a>
-            </li><!-- End Register Page Nav -->
-        </ul>
-
-    </aside><!-- End Sidebar-->
+  </ul>
+</aside><!-- End Sidebar-->
 
     <main id="main" class="main">
 
@@ -211,62 +216,63 @@ if (isset($_POST['simpan'])) {
             <div class="row">
                 <div class="col-lg-6">
 
-                    <div class="card-body">
-                        <h5 class="card-title">Tambah User</h5>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Tambah User</h5>
 
-                        <form class="row g-3" method="post">
-                            <div class="col-12">
-                                <label for="name" class="form-label">Nama</label>
-                                <input type="text" class="form-control" id="name" name="name" required>
-                            </div>
+                            <form class="row g-3" method="post">
+                                <div class="col-12">
+                                    <label for="name" class="form-label">Nama</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                </div>
 
-                            <div class="col-12">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" required>
-                            </div>
+                                <div class="col-12">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
 
-                            <div class="col-12">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" name="password">
-                            </div>
+                                <div class="col-12">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="password" name="password">
+                                </div>
 
-                            <div class="col-12">
-                                <label for="role" class="form-label">Role</label>
-                                <select class="form-control" name="role" required>
-                                    <option value="">-- Pilih Role --</option>
-                                    <option value="admin">Admin</option>
-                                    <option value="staff">Staff</option>
-                                </select>
-                            </div>
+                                <div class="col-12">
+                                    <label for="role" class="form-label">Role</label>
+                                    <select class="form-control" name="role" required>
+                                        <option value="">-- Pilih Role --</option>
+                                        <option value="admin">Admin</option>
+                                        <option value="staff">Staff</option>
+                                    </select>
+                                </div>
 
-                            <div class="col-12">
-                                <label for="is_active" class="form-label">Status</label>
-                                <select class="form-control" name="is_active">
-                                    <option value="1">Aktif</option>
-                                    <option value="0">Nonaktif</option>
-                                </select>
-                            </div>
+                                <div class="col-12">
+                                    <label for="is_active" class="form-label">Status</label>
+                                    <select class="form-control" name="is_active">
+                                        <option value="1">Aktif</option>
+                                        <option value="0">Nonaktif</option>
+                                    </select>
+                                </div>
 
-                            <div class="text-center">
-                                <button type="button" class="btn btn-warning">
-                                    <a href="users.php" style="color: black; text-decoration:none;">
-                                        Kembali
-                                    </a>
-                                </button>
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-warning">
+                                        <a href="users.php" style="color: black; text-decoration:none;">
+                                            Kembali
+                                        </a>
+                                    </button>
 
-                                <button type="reset" class="btn btn-secondary">
-                                    Reset
-                                </button>
+                                    <button type="reset" class="btn btn-secondary">
+                                        Reset
+                                    </button>
 
-                                <button type="submit" class="btn btn-success" name="simpan">
-                                    Simpan
-                                </button>
-                            </div>
+                                    <button type="submit" class="btn btn-success" name="simpan">
+                                        Simpan
+                                    </button>
+                                </div>
 
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
             </div>
         </section>
 
