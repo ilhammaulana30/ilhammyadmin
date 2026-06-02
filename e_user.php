@@ -123,7 +123,7 @@ if (isset($_POST['update'])) {
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="index.php">
-                    <i class="bi bi-grid"></i>
+                    <i class="bi bi-speedometer2"></i>
                     <span>Dashboard</span>
                 </a>
             </li><!-- End Dashboard Nav -->
@@ -144,7 +144,7 @@ if (isset($_POST['update'])) {
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="laporan.php">
-                    <i class="bi bi-bar-chart-line"></i>
+                    <i class="bi bi-file-earmark-text"></i>
                     <span>Laporan</span>
                 </a>
             </li><!-- End Contact Page Nav -->
@@ -228,7 +228,7 @@ if (isset($_POST['update'])) {
       &copy; Copyright <strong><span>ilventory</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
-      Designed by <a href="">ilham maulana</a>
+      Designed by <a href="https://www.tiktok.com/@iilhamlna?_r=1&_t=ZS-96sQ92BFo4G">ilham maulana</a>
     </div>
   </footer><!-- End Footer -->
 

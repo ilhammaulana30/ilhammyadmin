@@ -184,7 +184,7 @@ if (isset($_POST['simpan'])) {
     <!-- Laporan -->
     <li class="nav-item">
       <a class="nav-link <?= ($page == 'laporan.php') ? '' : 'collapsed' ?>" href="laporan.php">
-        <i class="bi bi-file-earmark-bar-graph"></i>
+        <i class="bi bi-file-earmark-text"></i>
         <span>Laporan</span>
       </a>
     </li>

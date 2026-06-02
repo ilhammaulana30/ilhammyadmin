@@ -4,7 +4,7 @@ require 'vendor/autoload.php';
 // Koneksi database
 require_once ('koneksi.php');
 
-function query($query) {
+function query(string $query) {
   global $conn;
   $result = mysqli_query($conn, $query);
 

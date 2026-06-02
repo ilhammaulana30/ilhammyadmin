@@ -49,7 +49,7 @@ $q_menipis = mysqli_query($conn, "SELECT product_name, stock, min_stock FROM pro
 
 $q_aktivitas = mysqli_query($conn, "SELECT sl.*, p.product_name, u.name AS user_name FROM stock_logs sl JOIN products p ON sl.product_id = p.id JOIN users u ON sl.created_by = u.id ORDER BY sl.created_at DESC LIMIT 5");
 
-function waktu_lalu($datetime)
+function waktu_lalu(string $datetime)
 {
   $selisih = time() - strtotime($datetime);
 
@@ -150,38 +150,40 @@ function waktu_lalu($datetime)
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.php">
-          <i class="bi bi-grid"></i>
+        <a class="nav-link" href="index.php">
+          <i class="bi bi-speedometer2"></i>
           <span>Dashboard</span>
         </a>
-      </li><!-- End Dashboard Nav -->
+      </li>
+
       <li class="nav-item">
         <a class="nav-link collapsed" href="kategori_produk.php">
           <i class="bi bi-tags"></i>
           <span>Kategori Produk</span>
         </a>
-      </li><!-- End Profile Page Nav -->
+      </li>
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="produk.php">
           <i class="bi bi-box-seam"></i>
           <span>Data Produk</span>
         </a>
-      </li><!-- End Data Produk Page Nav -->
+      </li>
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="laporan.php">
-          <i class="bi bi-bar-chart-line"></i>
+          <i class="bi bi-file-earmark-text"></i>
           <span>Laporan</span>
         </a>
-      </li><!-- End Laporan Page Nav -->
+      </li>
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="users.php">
           <i class="bi bi-people"></i>
           <span>Manajemen User</span>
         </a>
-      </li><!-- End Register Page Nav -->
+      </li>
+
     </ul>
 
   </aside><!-- End Sidebar-->
@@ -474,7 +476,7 @@ function waktu_lalu($datetime)
       &copy; Copyright <strong><span>ilventory</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
-      Designed by <a href="">ilham maulana</a>
+      Designed by <a href="https://www.tiktok.com/@iilhamlna?_r=1&_t=ZS-96sQ92BFo4G">ilham maulana</a>
     </div>
   </footer><!-- End Footer -->
 
