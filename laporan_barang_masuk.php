@@ -81,6 +81,7 @@ $html = '
 
 <body>
     <h1>ilventory</h1>
+    <hr>
     <h3>LAPORAN BARANG MASUK</h3>
     <table>
         <thead>

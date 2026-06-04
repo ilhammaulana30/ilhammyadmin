@@ -77,8 +77,9 @@ $html = '
 </head>
 
 <body>
-    <h1>Laporan Barang Keluar</h1>
-    <h3>ilventory</h3>
+    <h1>ilventory</h1>
+    <hr>
+    <h3>LAPORAN BARANG KELUAR</h3>
     <table>
         <thead>
             <tr>
